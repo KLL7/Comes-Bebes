@@ -1,15 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="../images/logo-no-bg.png" type="image/x-icon">
-  <link rel="stylesheet" href="../styles/index.css">
-  <title>Comes e bebes</title>
-</head>
-<body>
-  <header>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="../images/logo-no-bg.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="./styles/index.css" />
+    <title>Comes e bebes</title>
+  </head>
+  <body>
+    <header>
+      <div id="top-bar">
+        <img src="images/logo-no-bg.png" alt="icon" />
+        <label for="search-bar">
+          <img src="images/lupa.png" alt="search">
+          <input type="text" id="search-bar" placeholder="Pesquise o que deseja" />
+        </label>
+      </div>
+      <div id="top-config">
+        <div class="side-options"></div>
+        <div class="side-options"></div>
+        <div class="side-options"></div>
+      </div>
+    </header>
+
+    <nav id="progress-bar">
+        <a href="#burguers" class="progess-section active">Burguers</a>
+        <a href="#pasteis" class="progess-section">Pasteis</a>
+        <a href="#sucos" class="progess-section">Sucos</a>
+    </nav>
     
-  </header>
-</body>
+    <main>
+      <div id="menu">
+        <section class="menu-section" id="burguers">
+          <h1>Burguers</h1>
+          <div class="items-container">
+            <div class="item-card"></div>
+            <div class="item-card"></div>
+            <div class="item-card"></div>
+          </div>
+        </section>
+
+        <section class="menu-section" id="pasteis">
+          <h1>Pasteis</h1>
+          <div class="items-container">
+            <div class="item-card"></div>
+            <div class="item-card"></div>
+            <div class="item-card"></div>
+          </div>
+        </section>
+        <section class="menu-section" id="sucos">
+          <h1>Sucos</h1>
+          <div class="items-container">
+            <div class="item-card"></div>
+            <div class="item-card"></div>
+            <div class="item-card"></div>
+          </div>
+        </section>
+      </div>
+      <div id="toggle-button"></div>
+      <div id="side-menu"></div>
+    </main>
+  </body>
 </html>
