@@ -1,75 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../styles/login.css" />
-    <link
-      rel="shortcut icon"
-      href="../images/logo-no-bg.png"
-      type="image/x-icon"
-    />
-    <title>Comes e bebes</title>
-  </head>
-  <body>
-    <header>
-      <h1>Comes e bebes</h1>
-    </header>
-    <main>
-      <form action="">
-        <div id="title-container">
-          <h2>Entrar na conta</h2>
-          <div id="logo-container">
-            <img src="../images/logo-no-bg.png" alt="comer-bebes-icon" />
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../styles/login.css" />
+  <link rel="shortcut icon" href="../images/logo-no-bg.png" type="image/x-icon"/>
+  <title>Comes & Bebes - Login</title>
+</head>
+<body>
+  <header>
+    <h1>Comes & Bebes</h1>
+  </header>
+  <main>
+    <form id="login-form">
+      <div id="title-container">
+        <h2>Entrar na conta</h2>
+        <div id="logo-container">
+          <img src="../images/logo-no-bg.png" alt="comer-bebes-icon" />
+        </div>
+      </div>
+      <div id="login">
+        <h2>Insira seus dados</h2>
+        <div id="credentials-container">
+          <div id="credentials">
+            <input type="email" name="user-email" placeholder="Seu email" id="user-email">
+            <input type="password" name="user-password" placeholder="Sua senha" id="user-password"/>
+            <button id="login-btn" type="submit">Entrar</button>
           </div>
         </div>
-        <div id="login">
-          <h2>Insira seus dados</h2>
-          <div id="credentials-container">
-            <div id="credentials">
-              <input
-                type="text"
-                name="user-email"
-                placeholder="Seu email"
-                id="user-email"
-              />
-              <input
-                type="text"
-                name="user-password"
-                placeholder="Sua senha"
-                id="user-password"
-              />
-              <button id="login-btn">Entrar</button>
-            </div>
-          </div>
-          <div id="another-links">
-            <a href="#">Esqueci a senha</a>
-          </div>
+        <div id="another-links">
+          <a href="#">Esqueci a senha</a>
         </div>
-        <div id="regiter-component">
-          <button id="register-btn">Cadastrar-se</button>
-        </div>
-        <div id="register">
-          <div id="pop">
-            <span class="close-btn">&times;</span>
-            <input
-              type="email"
-              name="register-email"
-              id="register-email"
-              placeholder="Coloque seu email"
-            />
-            <input
-              type="password"
-              name="register-password"
-              id="register-password"
-              placeholder="Crie sua senha"
-            />
-            <button id="submit-btn">Enviar</button>
-          </div>
-        </div>
-      </form>
-    </main>
-  </body>
-  <script src="../scripts/pop.js" defer></script>
-  <script src="../scripts/login.js" defer></script>
+      </div>
+    </form>
+
+    <div id="regiter-component">
+      <button id="register-btn">Cadastrar-se</button>
+    </div>
+
+    <div id="register" class="hidden">
+      <div id="pop">
+        <span class="close-btn">&times;</span>
+        <input type="email" name="register-email" id="register-email" placeholder="Coloque seu email" required/>
+        <input type="password" name="register-password" id="register-password" placeholder="Crie sua senha" required/>
+        <button type="button" id="submit-btn">Enviar</button>
+      </div>
+    </div>
+  </main>
+</body>
+<script src="../scripts/pop.js" defer></script>
+<script src="../scripts/login.js" defer></script>
 </html>
