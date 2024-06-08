@@ -9,6 +9,9 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.setItem("users", JSON.stringify(users));
 
     alert("Cadastro realizado com sucesso!");
+
+    document.getElementById("register-email").value = "";
+    document.getElementById("register-password").value = "";
   });
 
   // Função de login
@@ -30,5 +33,8 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       alert("Usuário ou senha inválidos. Por favor, cadastre-se primeiro.");
     }
+
+    document.getElementById("user-email").value = "";
+    document.getElementById("user-password").value = "";
   });
 });
