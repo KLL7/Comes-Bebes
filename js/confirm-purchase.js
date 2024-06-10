@@ -2,10 +2,14 @@ const form = document.getElementById("form");
 const confirmBtn = document.getElementById("confirm-btn");
 const cancelBtn = document.getElementById("cancel-btn");
 
-confirmBtn.addEventListener("click", (event) => {
-  event.preventDefault();
-});
+const buttons = document.querySelectorAll("button");
 
-cancelBtn.addEventListener("click", (event) => {
-  event.preventDefault();
+buttons.forEach((button) => {
+  button.addEventListener("click", (event) => {
+    event.preventDefault();
+    button.classList.toggle("scale");
+    setTimeout(() => {
+      button.classList.toggle("scale");
+    }, 250);
+  });
 });
