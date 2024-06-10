@@ -3,21 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="shortcut icon"
-      href="../images/logo-no-bg.png"
-      type="image/x-icon"
-    />
+    <link rel="shortcut icon" href="../images/logo.png" type="image/x-icon" />
     <link rel="stylesheet" href="./styles/index.css" />
     <title>Comes e bebes</title>
   </head>
   <body>
     <header>
       <div id="top-bar">
-        <img src="images/logo-no-bg.png" alt="icon" />
+        <div>
+          <img src="images/logo.png" alt="icon" />
+        </div>
         <label for="search-bar">
-          <img src="images/lupa.png" alt="search">
-          <input type="text" id="search-bar" placeholder="Pesquise o que deseja" />
+          <img src="images/lupa.png" alt="search" />
+          <input
+            type="text"
+            id="search-bar"
+            placeholder="Pesquise o que deseja"
+          />
         </label>
       </div>
       <div id="top-config">
@@ -28,16 +30,20 @@
     </header>
 
     <nav id="progress-bar">
-        <a href="#burguers" class="progess-section active">Burguers</a>
-        <a href="#pasteis" class="progess-section">Pasteis</a>
-        <a href="#sucos" class="progess-section">Sucos</a>
+      <a href="#burguers" class="progess-section active">Burguers</a>
+      <a href="#pasteis" class="progess-section">Pasteis</a>
+      <a href="#sucos" class="progess-section">Sucos</a>
     </nav>
-    
+
     <main>
       <div id="menu">
         <section class="menu-section" id="burguers">
           <h1>Burguers</h1>
           <div class="items-container">
+            <div class="item-card"></div>
+            <div class="item-card"></div>
+            <div class="item-card"></div>
+            <div class="item-card"></div>
             <div class="item-card"></div>
             <div class="item-card"></div>
             <div class="item-card"></div>
@@ -62,7 +68,97 @@
         </section>
       </div>
       <div id="toggle-button"></div>
-      <div id="side-menu"></div>
+      <div id="cart" class="appear">
+        <span>Carrinho</span>
+        <div id="cart-item-container">
+          <div class="cart-item">
+            <div>
+              <span>Pastel de queijo</span>
+              <div>
+                <span>2 unidades</span>
+                <span>R$ 12,00</span>
+              </div>
+            </div>
+            <img src="images/pastel.jpeg" alt="pastel" />
+          </div>
+          <div class="cart-item">
+            <div>
+              <span>Pastel de queijo</span>
+              <div>
+                <span>2 unidades</span>
+                <span>R$ 12,00</span>
+              </div>
+            </div>
+            <img src="images/pastel.jpeg" alt="pastel" />
+          </div>
+          <div class="cart-item">
+            <div>
+              <span>Pastel de queijo</span>
+              <div>
+                <span>2 unidades</span>
+                <span>R$ 12,00</span>
+              </div>
+            </div>
+            <img src="images/pastel.jpeg" alt="pastel" />
+          </div>
+        </div>
+        <div id="cart-total">
+          <table id="cart-total-table" class="cart-total">
+            <thead>
+              <th>Conceito</th>
+              <th>Valor</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="cart-total-item">Valor dos itens</td>
+                <td class="cart-total-value">R$ 36,00</td>
+              </tr>
+              <tr>
+                <td class="cart-total-item">Valor de entrega</td>
+                <td class="cart-total-value">R$ 5,00</td>
+              </tr>
+              <tr>
+                <td class="cart-total-item">Descontos</td>
+                <td class="cart-total-value">R$ 0,00</td>
+              </tr>
+              <tr>
+                <td class="cart-total-item">Total</td>
+                <td class="cart-total-value">R$ 41,00</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <button id="finish-button">Finalizar compra</button>
+      </div>
     </main>
+
+    <footer>
+      <div id="footer-content">
+        <div id="footer-social-media">
+          <a href="#" class="footer-social">
+            <img src="images/facebook-icon.svg" alt="facebook" />
+            <span>Comes e Bebes</span>
+          </a>
+          <a href="#" class="footer-social">
+            <img src="images/insta-icon.svg" alt="instagram" />
+            <span>comes_e_bebes</span>
+          </a>
+        </div>
+        <div id="footer-contact">
+          <a href="#" class="footer-social">
+            <img src="images/whatsapp-icon.svg" alt="whatsapp" />
+            <span>(85) 94312-7525</span>
+          </a>
+          <a href="#" class="footer-social">
+            <img src="images/email-icon.svg" alt="email" />
+            <span>comes_e_bebes@gmail.com</span>
+          </a>
+        </div>
+      </div>
+      <span id="copyright"
+        >© 2021 Comes e Bebes. Todos os direitos reservados.</span
+      >
+    </footer>
+    <script src="js/index.js"></script>
   </body>
 </html>
