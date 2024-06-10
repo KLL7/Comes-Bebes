@@ -1,17 +1,19 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Função de cadastro
-  document.getElementById("submit-btn").addEventListener("click", function (event) {
-    event.preventDefault();
-    const newUser = document.getElementById("register-email").value;
-    const newPassword = document.getElementById("register-password").value;
+  document
+    .getElementById("submit-btn")
+    .addEventListener("click", function (event) {
+      event.preventDefault();
+      const newUser = document.getElementById("register-email").value;
+      const newPassword = document.getElementById("register-password").value;
 
-    const users = JSON.parse(localStorage.getItem("users")) || [];
-    users.push({ username: newUser, password: newPassword });
-    localStorage.setItem("users", JSON.stringify(users));
+      const users = JSON.parse(localStorage.getItem("users")) || [];
+      users.push({ username: newUser, password: newPassword });
+      localStorage.setItem("users", JSON.stringify(users));
 
-    document.getElementById("register-email").value = "";
-    document.getElementById("register-password").value = "";
-  });
+      document.getElementById("register-email").value = "";
+      document.getElementById("register-password").value = "";
+    });
 
   // Função de login
   document
@@ -28,12 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
         (user) => user.username === username && user.password === password
       );
 
-      if (foundUser) {
-        alert("Login bem-sucedido!");
-        window.location.href = "../index.html";
-      } else {
-        alert("Usuário ou senha inválidos. Por favor, cadastre-se primeiro.");
-      }
+      if (foundUser) window.location.href = "../index.html";
 
       document.getElementById("user-email").value = "";
       document.getElementById("user-password").value = "";
@@ -54,3 +51,26 @@ buttons.forEach((button) => {
 });
 
 // Animação para mudar de login para cadastro e vice-versa
+
+const loginLink = document.getElementById("login-link");
+const registerLink = document.getElementById("register-link");
+const blackDiv = document.querySelector(".black-div");
+const loginForm = document.getElementById("login");
+const registerForm = document.getElementById("register");
+
+loginLink.addEventListener("click", () => {
+  blackDiv.classList.toggle("hidden-black-div");
+  loginForm.style.visibility = "visible";
+  setTimeout(() => {
+    registerForm.style.visibility = "hidden";
+  }, 300)
+});
+
+registerLink.addEventListener("click", () => {
+  blackDiv.classList.toggle("hidden-black-div");
+  registerForm.style.visibility = "visible";
+  setTimeout(() => {
+    loginForm.style.visibility = "hidden";
+  }, 300)
+  
+});
