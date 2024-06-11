@@ -35,6 +35,7 @@ main {
   align-items: center;
   height: 100%;
   width: 100%;
+  transition: filter 350ms linear;
 }
 
 #login {
@@ -43,6 +44,7 @@ main {
 
 #register {
   border-left: 2px solid black;
+  filter: opacity(.4);
 }
 h2 {
   text-align: center;
@@ -103,6 +105,18 @@ button:hover {
   display: flex;
   justify-content: space-around;
   width: 100%;
+  padding-bottom: 8px;
+}
+
+.others-links a {
+  text-decoration: none;
+  font-size: 1.1em;
+  color: #0f0f0fe1;
+  transition: text-decoration .3s ease-in-out;
+}
+
+.others-links a:hover {
+  text-decoration: underline;
 }
 
 .hidden {
@@ -112,10 +126,13 @@ button:hover {
 .black-div {
   position: absolute;
   right: 0;
-  background: black;
+  filter: opacity(0.8);
+  background: radial-gradient(#c8c4c4, rgb(174, 171, 171));
   width: 50%;
   height: 100%;
-  transition: transform .3s ease-in-out;
+  transition: transform .3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  cursor: not-allowed;
+  box-shadow: var(--box-shadow);
 }
 
 .hidden-black-div {
