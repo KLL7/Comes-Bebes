@@ -10,21 +10,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const users = JSON.parse(localStorage.getItem("users")) || [];
 
-      if(newUser === "" || newPassword === "") {
-        console.log("campos vazios");
+      if (newUser !== "" || newPassword !== "") {
+        const userExists = users.some(
+          (user) => user.username === newUser && user.password === newPassword
+        );
+
+        if (!userExists) {
+          users.push({ username: newUser, password: newPassword });
+          localStorage.setItem("users", JSON.stringify(users));
+        }
+
+        document.getElementById("register-email").value = "";
+        document.getElementById("register-password").value = "";
       }
-
-      const userExists = users.some(
-        (user) => user.username === newUser && user.password === newPassword
-      );
-
-      if (!userExists) {
-        users.push({ username: newUser, password: newPassword });
-        sessionStorage.setItem("users", JSON.stringify(users));
-      } 
-
-      document.getElementById("register-email").value = "";
-      document.getElementById("register-password").value = "";
     });
 
   // Função de login
@@ -38,14 +36,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const users = JSON.parse(localStorage.getItem("users")) || [];
 
-      const foundUser = users.find(
-        (user) => user.username === username && user.password === password
-      );
+      if (!username !== " " || !password !== " ") {
+        const foundUser = users.find(
+          (user) => user.username === username && user.password === password
+        );
 
-      if (foundUser) window.location.href = "../index.html";
+        if (foundUser) window.location.href = "../index.html";
 
-      document.getElementById("user-email").value = "";
-      document.getElementById("user-password").value = "";
+        document.getElementById("user-email").value = "";
+        document.getElementById("user-password").value = "";
+      }
     });
 });
 

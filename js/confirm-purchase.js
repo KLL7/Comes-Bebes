@@ -5,13 +5,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Função para verificar se os dados são iguais
   function isDataEqual(data1, data2) {
-    return data1.dataName === data2.dataName &&
-           data1.dataAddress === data2.dataAddress &&
-           data1.dataPhone === data2.dataPhone;
+    return (
+      data1.dataName === data2.dataName &&
+      data1.dataAddress === data2.dataAddress &&
+      data1.dataPhone === data2.dataPhone
+    );
   }
 
   // Função de confirmar dados
-  function confirmBtn(event) {
+  confirmBtn.addEventListener("click", (event) => {
     event.preventDefault();
 
     const newDataName = document.getElementById("name").value;
@@ -26,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const currentData = {
       dataName: newDataName,
       dataAddress: newDataAddress,
-      dataPhone: newDataPhone
+      dataPhone: newDataPhone,
     };
 
     const savedData = JSON.parse(localStorage.getItem("data"));
@@ -34,16 +36,15 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!savedData || !isDataEqual(savedData, currentData)) {
       localStorage.setItem("data", JSON.stringify(currentData));
     }
-  }
-
+  });
   // Função do botão de cancelar
-  function cancelBtn(event) {
+  cancelBtn.addEventListener("click", (event) => {
     event.preventDefault();
     form.reset();
-  }
+  });
 
   // Função do bptão de lembrar dados
-  function rememberBtn(event) {
+  rememberBtn.addEventListener("click", (event) => {
     event.preventDefault();
 
     const savedData = JSON.parse(localStorage.getItem("data"));
@@ -53,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("address").value = savedData.dataAddress;
       document.getElementById("phone").value = savedData.dataPhone;
     }
-  }
+  });
 
   const buttons = document.querySelectorAll("button");
 
@@ -64,15 +65,6 @@ document.addEventListener("DOMContentLoaded", function () {
       setTimeout(() => {
         button.classList.toggle("scale");
       }, 250);
-      
-// Ativação dos botões a partir do ForEach
-      if (button === confirmBtn) {
-        confirmData(event);
-      } else if (button === cancelBtn) {
-        cancelData(event);
-      } else if (button === rememberBtn) {
-        rememberData(event);
-      }
     });
   });
 });
