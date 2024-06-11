@@ -4,12 +4,24 @@ document.addEventListener("DOMContentLoaded", function () {
     .getElementById("submit-btn")
     .addEventListener("click", function (event) {
       event.preventDefault();
+
       const newUser = document.getElementById("register-email").value;
       const newPassword = document.getElementById("register-password").value;
 
       const users = JSON.parse(localStorage.getItem("users")) || [];
-      users.push({ username: newUser, password: newPassword });
-      localStorage.setItem("users", JSON.stringify(users));
+
+      if(newUser === "" || newPassword === "") {
+        console.log("campos vazios");
+      }
+
+      const userExists = users.some(
+        (user) => user.username === newUser && user.password === newPassword
+      );
+
+      if (!userExists) {
+        users.push({ username: newUser, password: newPassword });
+        sessionStorage.setItem("users", JSON.stringify(users));
+      } 
 
       document.getElementById("register-email").value = "";
       document.getElementById("register-password").value = "";
