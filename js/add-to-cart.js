@@ -1,71 +1,43 @@
-//base do código é o pomodoro
-const cards = document.querySelectorAll(".item-card");
-cards.forEach(card => {
-    const name = card.querySelector(".item-name");
-    const ingredients = card.querySelector("item-ingregredients");
-    const price = card.querySelector(".item-price");
-    const quantity = card.querySelector(".item-quantity");
+//base do código é o pomodoro    
+const cards = document.querySelectorAll(".item-card")
+cards.forEach((card) => {
+const nameV = card.querySelector(".item-name");
+const priceV = card.querySelector(".item-price");
+const quantityV = card.querySelector(".item-quantity");
+const imgV = card.querySelector(".item-img");
 
-    card.addEventListener("click", () =>{
-        if (quantity.value <= 0){
-            alert("Você tem que pedir algum para adicionar ao carrinho");
-        }
+const name = nameV.textContent;
+const price = priceV.textContent;
+const quantity = quantityV.textContent;
+const img = imgV.src;
 
-        addcardtocart(name, price, ingredients, quantity);
+card.addEventListener("click", () =>{
+    if (quantityV <= 0){
+        alert("Você tem que pedir algum para adicionar ao carrinho");
     }
-    )
-
-    function addcardtocart(name, price, ingredients, quantity){
-
-    }
-
-
+    console.log(nameV, priceV, quantityV, imgV);
+    addcardtocart(name, price, quantity, img);
+}
+)
 })
- 
-const painelcart = document.querySelector('#tasks_panel');
 
-addTaskButton.addEventListener('click', () => addNewTask());
 
-function createNewTask() {
+function addcardtocart(name, price, quantity, img){
+    const painelCart = document.querySelector(".cart-item-container");
+    const oldCart = painelCart.innerHTML;
 
-    const painelCard = document.querySelector("");
-    taskElement.classList.add('itens');
+    painelCart.innerHTML = `
+    <div class="cart-item">
+        <div>
+            <span>${name}</span>
+            <div>
+                <span>${quantity}</span>
+                <span>${price}</span>
+            </div>
+        </div>
+        <img class="item-img" src="${img}" alt="pastel" />
+    </div>
+    `
 
-    const item = document.createElement('p');
-    item.classList.add('item_p');
-
-    //item.innerText = taskInput.value;
-
-    item.addEventListener('click', () => LineThrough(item));
-
-    const trashBinContainer = document.createElement('span');
-    trashBinContainer.classList.add('gg-trash_container');
-    const trashBin = document.createElement('span');
-    trashBin.classList.add('gg-trash');
-    trashBin.addEventListener('click', () => DeletItem(taskElement, item));
-    trashBinContainer.appendChild(trashBin);
-
-    taskElement.appendChild(item);
-    taskElement.appendChild(trashBinContainer);
-    paineltask.appendChild(taskElement);
-    taskInput.value= '';
-};
-
-const DeletItem = (taskElement, item) =>{
-    const remove = paineltask.childNodes;
-    for(const task of remove){
-        if(task.firstChild === item){
-            taskElement.remove()
-        }
-    }
-};
-
-const LineThrough = (item) => {
-    const tasks = paineltask.childNodes;
-    for(const task of tasks){
-        if(task.firstChild === item) {
-            task.firstChild.classList.toggle('line_through');
-        }
-    }
-};
-
+    painelCart.innerHTML = oldCart;
+}

@@ -52,3 +52,4 @@ toggleButton.addEventListener("click", () => {
     }, 250);
   }
 });
+
