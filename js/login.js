@@ -57,20 +57,26 @@ const registerLink = document.getElementById("register-link");
 const blackDiv = document.querySelector(".black-div");
 const loginForm = document.getElementById("login");
 const registerForm = document.getElementById("register");
+const inputs = document.querySelectorAll("input");
 
 loginLink.addEventListener("click", () => {
   blackDiv.classList.toggle("hidden-black-div");
-  loginForm.style.visibility = "visible";
-  setTimeout(() => {
-    registerForm.style.visibility = "hidden";
-  }, 300)
+
+  registerForm.style.filter = "opacity(.4)";
+  loginForm.style.filter = "opacity(1)";
+
+  inputs.forEach((input) => {
+    input.value = "";
+  });
 });
 
 registerLink.addEventListener("click", () => {
   blackDiv.classList.toggle("hidden-black-div");
-  registerForm.style.visibility = "visible";
-  setTimeout(() => {
-    loginForm.style.visibility = "hidden";
-  }, 300)
-  
+
+  loginForm.style.filter = "opacity(.4)";
+  registerForm.style.filter = "opacity(1)";
+
+  inputs.forEach((input) => {
+    input.value = "";
+  });
 });
