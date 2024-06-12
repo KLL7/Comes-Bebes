@@ -1,4 +1,3 @@
-//base do código é o pomodoro
 var painelCart = document.querySelector("#cart-item-container");
 var pricePainel = document.querySelector(".cart-total-value").innerText;
 var buttonFinish = document.querySelector("#finish-button");
