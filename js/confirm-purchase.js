@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
     form.reset();
   });
 
-  // Função do bptão de lembrar dados
+  // Função do botão de lembrar dados
   rememberBtn.addEventListener("click", (event) => {
     event.preventDefault();
 

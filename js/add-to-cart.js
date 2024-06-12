@@ -1,8 +1,5 @@
-//base do código é o pomodoro
 var painelCart = document.querySelector("#cart-item-container");
 var priceTotal = document.querySelector("#cart-total").innerText;
-//delete
-//delete cardincart
 
 const cards = document.querySelectorAll(".item-card")
 cards.forEach((card) => {
