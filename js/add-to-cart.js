@@ -28,6 +28,8 @@ buttonAdd.addEventListener("click", () =>{
     var priceCard = parseFloat(priceValue) * parseFloat(quantity);
     console.log(priceCard)
 
+
+    //Pode ver as divs dos itens no carrinho aqui
     var newcard = document.createElement("div");
     newcard.classList.add("cart-item");
     newcard.innerHTML = `
@@ -65,6 +67,7 @@ buttonAdd.addEventListener("click", () =>{
 )
 })
 
+//Pode ver as divs do popup aqui
 buttonFinish.addEventListener("click", () => {
     var painelpopup = document.createElement("div");
     painelpopup.classList.add("popup-painel");
