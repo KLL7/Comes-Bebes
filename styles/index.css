@@ -408,3 +408,7 @@ thead th {
   cursor: pointer;
   transition: scale 0.3s cubic-bezier(0.215, 0.610, 0.355, 1);
 }
+
+.promoted {
+  color: red;
+}
