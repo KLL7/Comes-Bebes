@@ -77,10 +77,12 @@ buttonFinish.addEventListener("click", () => {
             <img class = "popup-painel-imgExit" src = "images/close.svg"/>
             <span class = "popup-painel-title">Título</span>
             <span class = "popup-painel-text">Texto(aqui que vai ter o valor e a opção de escolher o pagamento, endereço e etc)</span>
-            <button class = "popup-painel-button">OK</button>
+            <button class = "popup-painel-button">Continuar</button>
         </div>
     </div>
     `;
+    const body = document.querySelector("body");
+    body.style.overflow = "hidden";
 
     const delpopup = painelpopup.querySelector(".popup-painel-imgExit");
     delpopup.addEventListener("click", () => {
@@ -89,9 +91,14 @@ buttonFinish.addEventListener("click", () => {
 
     const buttonpopup = painelpopup.querySelector(".popup-painel-button");
     buttonpopup.addEventListener("click", () => {
-        painelpopup.remove();
-        alert("Obrigado por comprar na Comes & Bebes");
-        window.location.reload();
+        painelpopup.innerHTML = `
+        <div class = "popup-painel-back">
+            <span class = "popup-painel-title">Obrigado por comprar no Comes & Bebes</span>
+        </div>
+        `;
+        setTimeout(() => {
+            window.location.reload();
+        }, 500)
     });
     menu.append(painelpopup);
 })

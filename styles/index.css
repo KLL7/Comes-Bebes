@@ -346,10 +346,65 @@ thead th {
   align-items: center;
 }
 
-.popup-painel-content {
+.popup-painel-content,
+.popup-painel-back > .popup-painel-title {
   background-color: white;
   padding: 20px;
   border-radius: 8px;
   box-shadow: var(--box-shadow);
+}
+.popup-painel-content {
+  position: relative;
   width: 300px;
+}
+
+.popup-painel-title {
+  display: block;
+  font-size: 1.4em;
+  font-weight: 600;
+}
+
+.popup-painel-text {
+  display: block;
+  font-size: 1.2em;
+  font-weight: 400;
+  margin: 8px 0;
+}
+
+.popup-painel-button {
+  display: block;
+  margin: 0 auto;
+  min-width: fit-content;
+  width: 50%;
+  padding: 4px;
+  font-size: 1em;
+  font-weight: 600;
+  background: #a3a0a0;
+  border: none;
+  border-radius: 4px;
+  box-shadow: var(--box-shadow);
+  transition: background-color 0.3s cubic-bezier(0.215, 0.610, 0.355, 1);
+  transition: border-radius 0.3s linear;
+  transition: scale 0.3s cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+
+.popup-painel-button:hover {
+  cursor: pointer;
+  border-radius: 8px;
+  background-color: #e0e0e0;
+}
+
+.popup-painel-button:active {
+  scale: 0.95;
+}
+
+.popup-painel-imgExit {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 20px;
+  height: 20px;
+  color: #000;
+  cursor: pointer;
+  transition: scale 0.3s cubic-bezier(0.215, 0.610, 0.355, 1);
 }
