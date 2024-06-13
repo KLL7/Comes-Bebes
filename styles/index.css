@@ -100,7 +100,6 @@ main {
   grid-template-columns: repeat(2, 1fr);
   justify-content: center;
   align-items: center;
-  justify-items: center;
   gap: 10px 4px;
   padding: 8px;
   width: 60vw;
@@ -113,25 +112,56 @@ main {
   }
 }
 
-.items-container .item-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
 
 .item-card {
+  display: flex;
   min-width: 300px;
   height: 150px;
   background: white;
   box-shadow: var(--box-shadow);
-  display: flex;
   border-radius: 4px;
   overflow: hidden;
 }
 
-.item-card img {
-  display: block;
-  width: 30%;
+.item-button-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.add-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  font-weight: 600;
+  font-size: .9em;
+  color: #fff;
+  background: #353333;
+  border: none;
+  box-shadow: var(--box-shadow-sm);
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.add-button:hover {
+  cursor: pointer;
+  background: #3b3a3ae0;
+}
+
+.item-img {
+  min-width: 150px;
+  max-width: 150px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .item-card input {
@@ -141,11 +171,12 @@ main {
   text-align: center;
 }
 
-.item-card > div {
+.item-info {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 8px;
+  width: 100%;
 }
 
 .item-card > div > div {
@@ -225,6 +256,7 @@ main {
   min-width: 100%;
   border-radius: 8px;
   transition: filter 0.3s ease-in-out;
+  position: relative;
 }
 
 .cart-item:hover {
@@ -239,17 +271,21 @@ main {
   justify-content: space-between;
 }
 
-.cart-item > div > span {
+.cart-item .item-quantity {
   font-size: var(--text);
   font-weight: 600;
   color: #413f3f;
 }
 
-.cart-item > div > div span {
-  font-size: var(--text);
+.cart-item .delete {
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 24px;
+  height: 24px;
+  background: rgb(78, 75, 75);
 }
 
-.cart-item > div > div span:nth-child(2) {
+.cart-item .item-price {
   color: green;
   background-color: #4e49491b;
   text-align: center;
@@ -260,8 +296,10 @@ main {
 }
 
 .cart-item img {
-  width: 30%;
+  max-width: 100px;
   border-radius: 4px;
+  object-fit: contain;
+  object-position: center;
 }
 
 #cart-total {
