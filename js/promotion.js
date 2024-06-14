@@ -7,51 +7,66 @@ document.addEventListener("DOMContentLoaded", () => {
     const priceElements = item.querySelectorAll(".item-price");
     originalPrices.push(
       Array.from(priceElements).map((priceElement) =>
-        parseFloat(priceElement.textContent.replace("R$", "").replace(",", "."))
+        parseFloat(priceElement.textContent.replace("R$", "").replace(","))
       )
     );
   });
 
-  // É aplicada a promoção a partir de um forEach
+  // Função para aplicar o desconto
   function applyPromotion(discount) {
-    items.forEach((item, index) => {
-      const priceElements = item.querySelectorAll(".item-price");
-      priceElements.forEach((priceElement, priceIndex) => {
-        const originalPrice = originalPrices[index][priceIndex];
-        // Ao mutiplicar o desconto com o valor original temos o novo valor
-        const newPrice = (originalPrice - originalPrice * discount).toFixed(2);
-        priceElement.textContent = `R$ ${newPrice.replace(".", ",")}`;
-      });
+    randomIndex = Math.floor(Math.random() * items.length);
+    const item = items[randomIndex];
+    const priceElements = item.querySelectorAll(".item-price");
+    const nameElement = item.querySelector(".item-name");
+    const ingredientsElement = item.querySelector(".item-ingredients");
+
+    priceElements.forEach((priceElement, priceIndex) => {
+      const originalPrice = originalPrices[randomIndex][priceIndex];
+      const newPrice = (originalPrice - originalPrice * discount).toFixed(2);
+      priceElement.textContent = `R$ ${newPrice.replace(",")} (-${discount * 100}%)`;
+      priceElement.classList.add("promoted");
     });
+
+    nameElement.classList.add("promoted");
+    ingredientsElement.classList.add("promoted");
+
+    return randomIndex;
+
   }
 
-  // Tras os valores antigos de volta (ta tendo bugs, dps eu arrumo)
-  function revertPrices() {
-    items.forEach((item, index) => {
-      const priceElements = item.querySelectorAll(".item-price");
-      priceElements.forEach((priceElement, priceIndex) => {
-        priceElement.textContent = `R$ ${originalPrices[index][priceIndex]
-          .toFixed(2)
-          .replace(".", ",")}`;
-      });
+  // Função para devolver os valores
+  function revertPrices(index) {
+    const item = items[index];
+    const priceElements = item.querySelectorAll(".item-price");
+    const nameElement = item.querySelector(".item-name");
+    const ingredientsElement = item.querySelector(".item-ingredients");
+
+    priceElements.forEach((priceElement, priceIndex) => {
+      priceElement.textContent = `R$ ${originalPrices[index][priceIndex]
+        .toFixed(2)
+        .replace(".", ",")}`;
+      priceElement.classList.remove("promoted");
     });
+
+    nameElement.classList.remove("promoted");
+    ingredientsElement.classList.remove("promoted");
   }
 
-  // Da início as promoções indicando qual vai ser o tipo de promoção
+  // Função para indicar o tipo de promoção
   function startPromotion() {
     const discounts = [0.2, 0.4, 0.7];
     const randomDiscount =
       discounts[Math.floor(Math.random() * discounts.length)];
     const promotionDuration = 30000;
 
-    applyPromotion(randomDiscount);
+    const promotedItemIndex = applyPromotion(randomDiscount);
 
     setTimeout(() => {
-      revertPrices();
+      revertPrices(promotedItemIndex);
     }, promotionDuration);  
   }
 
-  // Timer para indicar o início de um novo intervalo
+  // Timer muito brabo para indicar um novo intervalo
   function timePromotion() {
     const promotionIntervals = [10000, 20000, 30000];
     const randomInterval =
