@@ -83,10 +83,12 @@ buttonFinish.addEventListener("click", () => {
             <span class = "popup-painel-title">Finalizar compra</span>
             <span class = "popup-painel-text">Valor do seu pedido: R$ ${pricePainel}</span>
             <span class = "popup-painel-text">Coloque as informações do seu endereço de entrega: </span>
-            <input class = "popup-painel-cep" type = "text" placeholder = "CEP"/>
-            <input class = "popup-painel-adress" type = "text" placeholder = "Endereço"/>
-            <input class = "popup-painel-neighborhood" type = "text" placeholder = "Bairro"/>
-            <input class = "popup-painel-city" type = "text" placeholder = "Cidade"/>
+            <div class="form">
+                <input class = "popup-painel-cep" type = "text" placeholder = "CEP"/>
+                <input class = "popup-painel-adress" type = "text" placeholder = "Endereço"/>
+                <input class = "popup-painel-neighborhood" type = "text" placeholder = "Bairro"/>
+                <input class = "popup-painel-city" type = "text" placeholder = "Cidade"/>
+            </div>
             <button class = "popup-painel-button">Continuar</button>
         </div>
     </div>
@@ -96,6 +98,7 @@ buttonFinish.addEventListener("click", () => {
 
     const delpopup = painelpopup.querySelector(".popup-painel-imgExit");
     delpopup.addEventListener("click", () => {
+        body.style.overflow = "auto";
         painelpopup.remove();
     });
 

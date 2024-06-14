@@ -254,6 +254,7 @@ main {
   box-shadow: var(--box-shadow-sm);
   padding: 8px;
   min-width: 100%;
+  max-height: 100px;
   border-radius: 8px;
   transition: filter 0.3s ease-in-out;
   position: relative;
@@ -267,8 +268,14 @@ main {
 .cart-item div {
   display: flex;
   flex-direction: column;
+  width: 100%;
   gap: 2px;
   justify-content: space-between;
+}
+
+.cart-item img:nth-last-child(1) {
+  object-fit: cover;
+  object-position: center;
 }
 
 .cart-item .item-quantity {
@@ -407,6 +414,20 @@ thead th {
   color: #000;
   cursor: pointer;
   transition: scale 0.3s cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 4px 0;
+}
+
+.form input {
+  padding: 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
 }
 
 .promoted {
