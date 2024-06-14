@@ -67,7 +67,9 @@ buttonAdd.addEventListener("click", () =>{
 )
 })
 
-//Pode ver as divs do popup aqui
+
+
+// Popup
 buttonFinish.addEventListener("click", () => {
     const painelpopup = document.createElement("div");
     painelpopup.classList.add("popup-painel");
@@ -75,8 +77,13 @@ buttonFinish.addEventListener("click", () => {
     <div class = "popup-painel-back">
         <div class = "popup-painel-content">
             <img class = "popup-painel-imgExit" src = "images/close.svg"/>
-            <span class = "popup-painel-title">Título</span>
-            <span class = "popup-painel-text">Texto(aqui que vai ter o valor e a opção de escolher o pagamento, endereço e etc)</span>
+            <span class = "popup-painel-title">Finalizar compra</span>
+            <span class = "popup-painel-text">Valor do seu pedido: R$ ${pricePainel}</span>
+            <span class = "popup-painel-text">Coloque as informações do seu endereço de entrega: </span>
+            <input class = "popup-painel-cep" type = "text" placeholder = "CEP"/>
+            <input class = "popup-painel-adress" type = "text" placeholder = "Endereço"/>
+            <input class = "popup-painel-neighborhood" type = "text" placeholder = "Bairro"/>
+            <input class = "popup-painel-city" type = "text" placeholder = "Cidade"/>
             <button class = "popup-painel-button">Continuar</button>
         </div>
     </div>
@@ -99,8 +106,29 @@ buttonFinish.addEventListener("click", () => {
         setTimeout(() => {
             window.location.reload();
         }, 500)
+
+        });
+
+    const cep = painelpopup.querySelector(".popup-painel-cep");
+    const adress = painelpopup.querySelector(".popup-painel-adress");
+    const neighborhood = painelpopup.querySelector(".popup-painel-neighborhood");
+    const city = painelpopup.querySelector(".popup-painel-city");
+    
+    cep.addEventListener("focusout", () => {
+        console.log('era pra');
+        const url = `https://viacep.com.br/ws/${cep.value}/json/`;
+        fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+            if (data.erro) {
+                alert("CEP inválido");
+                return;
+            }
+            adress.value = data.logradouro;
+            city.value = data.localidade;
+            neighborhood.value = data.bairro;
+        })
     });
+
     menu.append(painelpopup);
 })
-
-//Botão de escolher a quantidade
