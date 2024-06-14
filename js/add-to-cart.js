@@ -10,13 +10,13 @@ cards.forEach((card) => {
 const nameV = card.querySelector(".item-name").innerText;
 const quantityV = card.querySelector(".item-quantity");
 const buttonAdd = card.querySelector(".add-button");
-const priceV = card.querySelector(".item-price").innerText;
+const priceV = card.querySelector(".item-price")
 const imgV = card.querySelector(".item-img").src;
 
 buttonAdd.addEventListener("click", () =>{
 
     const quantity = quantityV.value
-    const priceValue = priceV.replace('R$', '')
+    const priceValue = priceV.textContent.replace("R$", "").replace(",", ".");
     console.log(priceValue)
     console.log(quantity)
     
@@ -48,7 +48,7 @@ buttonAdd.addEventListener("click", () =>{
     price = price + priceCard;
     console.log(price+"price");
     pricePainel = price
-    document.querySelector(".cart-total-value").innerText = "R$ "+price;
+    document.querySelector(".cart-total-value").innerText = "R$ "+ price.toFixed(2).replace(".", ",");
 
     const del = newcard.querySelector(".delete");
     del.addEventListener("click", () => {
@@ -56,7 +56,10 @@ buttonAdd.addEventListener("click", () =>{
         delprice = delprice - priceCard;
         console.log(delprice+"delprice");
         pricePainel = delprice
-        document.querySelector(".cart-total-value").innerText = "R$ "+delprice;
+        if (delprice < 0) {
+            delprice = 0.00;
+          }
+        document.querySelector(".cart-total-value").innerText = "R$ "+ delprice.toFixed(2).replace(".", ",");
         newcard.remove();
     })
 

@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const priceElements = item.querySelectorAll(".item-price");
     originalPrices.push(
       Array.from(priceElements).map((priceElement) =>
-        parseFloat(priceElement.textContent.replace("R$", "").replace(","))
+        parseFloat(priceElement.textContent.replace("R$", "").replace(",", "."))
       )
     );
   });
